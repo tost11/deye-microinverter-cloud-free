@@ -1,6 +1,18 @@
+## What's this fork about ?
+
+I have implemented an application that monitors solar systems on a server
+with graphs, statistics and all the cool stuff!
+
+For getting data on this application this fork has a new feature
+that sends the current inverter data via rest to the application.
+
+If you are interested in the application or the rest definition for your own application
+check out the [project](https://github.com/tost11/solar-monitoring).
+
 # Deye Microinverter - Cloud-free
 
 ![Deye microinverter in the sun](img/banner.jpg)
+
 
 Solar power generation work best if there are no clouds anywhere to be seen :)
 <br/><br/>

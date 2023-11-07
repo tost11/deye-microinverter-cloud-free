@@ -12,7 +12,8 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "mqtt": "^4.3.7"
+    "mqtt": "^4.3.7",
+    "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "eslint": "8.16.0",

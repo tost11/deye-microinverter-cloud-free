@@ -1,0 +1,69 @@
+{
+  header: {
+    magic: 165,
+    payloadLength: 534,
+    unknown1: 16,
+    type: 66,
+    msgIDResponse: 16,
+    msgIDRequest: 20,
+    loggerSerial: 123456789
+  },
+  data: {
+    pv: {
+      '1': {
+        v: 45.9,
+        i: 2.5,
+        w: 114.75,
+        kWh_today: 0.1,
+        kWh_total: 0.2
+      },
+      '2': {
+        v: 0,
+        i: 0,
+        w: 0,
+        kWh_today: 0,
+        kWh_total: 0
+      },
+      '3': {
+        v: 0,
+        i: 0,
+        w: 0,
+        kWh_today: 0,
+        kWh_total: 0
+      },
+      '4': {
+        v: 0,
+        i: 0,
+        w: 0,
+        kWh_today: 0,
+        kWh_total: 0
+      }
+    },
+    grid: {
+      active_power_w: 115,
+      kWh_today: 0.1,
+      kWh_total: 0.2,
+      v: 234,
+      i: 0.4,
+      hz: 50
+    },
+    inverter: {
+      radiator_temp_celsius: 29.3
+    },
+    inverter_meta: {
+      rated_power_w: 300,
+      mppt_count: 1,
+      startup_self_check_time: 60,
+      current_time: 2023-11-05T18:53:36.000Z,
+      grid_freq_hz_overfreq_load_reduction_starting_point: 50.2,
+      grid_overfreq_load_reduction_percent: 44,
+      grid_v_limit_upper: 275,
+      grid_v_limit_lower: 180,
+      grid_freq_hz_limit_upper: 52,
+      grid_freq_hz_limit_lower: 47.5,
+      protocol_ver: 'V0.2.0.1',
+      dc_master_fw_ver: 'V0.1.1.4',
+      ac_fw_ver: 'V1.2.1.2'
+    }
+  }
+}
