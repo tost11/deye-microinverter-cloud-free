@@ -78,7 +78,7 @@ class TSMClient {
       request_data.devices[0].inputsDC.push(input);
     }
 
-    console.log("%j", request_data);
+    Logger.debug("Sending json to application", request_data);
 
     const response = fetch(this.options.url+"?serialId="+data.header.loggerSerial, {
       method: 'POST',
@@ -90,7 +90,12 @@ class TSMClient {
     });
 
     response.then(res=>{
-      console.log(res)
+      Logger.debug("Response was: ", res);
+      if (!response.ok) {
+        Logger.warn("Received data not handled becaue of:", res);
+      }
+    }).error(err=>{
+      Logger.warn("Conneciton to server failed", err);
     })
   }
 }

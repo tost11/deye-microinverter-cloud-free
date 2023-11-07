@@ -62,6 +62,7 @@ class DummyCloud {
                         });
 
                         response = Protocol.buildTimeResponse(packet);
+
                         break;
                     }
 
