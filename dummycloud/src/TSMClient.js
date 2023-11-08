@@ -78,6 +78,7 @@ class TSMClient {
       request_data.devices[0].inputsDC.push(input);
     }
 
+    Logger.info("New data packet for serial: ",data.header.loggerSerial);
     Logger.debug("Sending json to application", request_data);
 
     const response = fetch(this.options.url+"?serialId="+data.header.loggerSerial, {
@@ -91,10 +92,10 @@ class TSMClient {
 
     response.then(res=>{
       Logger.debug("Response was: ", res);
-      if (!response.ok) {
-        Logger.warn("Received data not handled becaue of:", res);
+      if (!res.ok) {
+        Logger.warn("Received data not handled becaue of:", res.status, res.statusText);
       }
-    }).error(err=>{
+    }).catch(err=>{
       Logger.warn("Conneciton to server failed", err);
     })
   }
