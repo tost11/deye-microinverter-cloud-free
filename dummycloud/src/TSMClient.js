@@ -40,7 +40,7 @@ class TSMClient {
   handleData(data) {
 
     let request_data = {
-      duration: 10,
+      duration: 60 * 5,
       devices: [{
         id: data.header.loggerSerial,
         temperature: data.payload.inverter.radiator_temp_celsius,
