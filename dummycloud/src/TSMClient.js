@@ -39,6 +39,16 @@ class TSMClient {
 
   handleData(data) {
 
+    let out_voltage = data.payload.grid.v;
+    if(out_voltage > 250 || out_voltage < 210){
+      out_voltage = null
+    }
+
+    let out_freq = data.payload.grid.hz;
+    if(out_freq > 51 || out_freq < 49){
+      out_freq = null
+    }
+
     let request_data = {
       duration: 60 * 5,
       devices: [{
@@ -47,11 +57,11 @@ class TSMClient {
         outputsAC: [
           {
             id: 1,
-            voltage: data.payload.grid.v,
+            voltage: out_voltage,
             ampere: data.payload.grid.i,
             watt: data.payload.grid.active_power_w,
             totalKWH: data.payload.grid.kWh_total,
-            frequency: data.payload.grid.hz,
+            frequency: out_freq
           }
         ],
         inputsDC:[]
