@@ -39,13 +39,29 @@ class TSMClient {
 
   handleData(data) {
 
+    const voltMax = 255;
+    const voltMin = 205;
+
     let out_voltage = data.payload.grid.v;
-    if(out_voltage > 250 || out_voltage < 210){
+
+    if(out_voltage != null && out_voltage * 2 < voltMax && out_voltage * 2 > voltMin){
+      out_voltage *= 2;
+    }
+
+    if(out_voltage > voltMax || out_voltage < voltMin){
       out_voltage = null
     }
 
+    const maxFreq = 51;
+    const minFreq = 49;
+
     let out_freq = data.payload.grid.hz;
-    if(out_freq > 51 || out_freq < 49){
+
+    if(out_freq != null && out_freq * 2 < maxFreq && out_freq * 2 > minFreq){
+      out_voltage *= 2;
+    }
+
+    if(out_freq > maxFreq || out_freq < minFreq){
       out_freq = null
     }
 
