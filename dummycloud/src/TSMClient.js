@@ -39,14 +39,19 @@ class TSMClient {
 
   handleData(data) {
 
+    if(data.payload.inverter_meta.mppt_count === 0){
+      Logger.debug("Skipped invalid Data packet", request_data);
+      return;
+    }
+
     const voltMax = 255;
     const voltMin = 205;
 
     let out_voltage = data.payload.grid.v;
 
-    if(out_voltage != null && out_voltage * 2 < voltMax && out_voltage * 2 > voltMin){
+    /*if(out_voltage * 2 < voltMax && out_voltage * 2 > voltMin){
       out_voltage *= 2;
-    }
+    }*/
 
     if(out_voltage > voltMax || out_voltage < voltMin){
       out_voltage = null
@@ -57,9 +62,9 @@ class TSMClient {
 
     let out_freq = data.payload.grid.hz;
 
-    if(out_freq != null && out_freq * 2 < maxFreq && out_freq * 2 > minFreq){
-      out_voltage *= 2;
-    }
+    /*if(out_freq * 2 < maxFreq && out_freq * 2 > minFreq){
+      out_freq *= 2;
+    }*/
 
     if(out_freq > maxFreq || out_freq < minFreq){
       out_freq = null
