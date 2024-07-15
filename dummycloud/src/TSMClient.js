@@ -40,7 +40,7 @@ class TSMClient {
   handleData(data) {
 
     if(data.payload.inverter_meta.mppt_count === 0){
-      Logger.debug("Skipped invalid Data packet", request_data);
+      Logger.info("Skipped invalid Data packet");
       return;
     }
 
