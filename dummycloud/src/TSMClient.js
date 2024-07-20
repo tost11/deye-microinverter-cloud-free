@@ -80,7 +80,7 @@ class TSMClient {
       duration: 60 * 5,
       devices: [{
         id: data.header.loggerSerial,
-        temperature: data.payload.inverter.radiator_temp_celsius,
+        temperature: out_temp,
         outputsAC: [
           {
             id: 1,
