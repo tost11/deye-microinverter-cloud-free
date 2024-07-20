@@ -72,7 +72,7 @@ class TSMClient {
 
     let out_temp = data.payload.inverter.radiator_temp_celsius
 
-    if(!(out_temp < -10 && out_temp > -10)){
+    if(!(out_temp < -10 || out_temp > -10)){
       out_temp = null
     }
 
